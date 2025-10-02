@@ -7,22 +7,25 @@ class Node {
 class LinkedList {
   Node? head;
 
-  void addLast(int v) {
-    (head == null) ? head = Node(v) : _last().next = Node(v);
+  void addLast(int value) {
+    if (head == null) {
+      head = Node(value);
+      return;
+    }
+    Node current = head!;
+    while (current.next != null) {
+      current = current.next!;
+    }
+    current.next = Node(value);
   }
 
   int? removeFirst() {
     if (head == null) return null;
-    int v = head!.value;
+    int val = head!.value;
     head = head!.next;
-    return v;
-  }
-
-  Node _last() {
-    var c = head!;
-    while (c.next != null) c = c.next!;
-    return c;
+    return val;
   }
 
   bool get isEmpty => head == null;
 }
+
