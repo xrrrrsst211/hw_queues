@@ -1,8 +1,16 @@
-import 'linked_list.dart';
+import 'queue_list.dart';
+import 'queue_linkedlist.dart';
 
-class QueueLinkedList {
-  final _l = LinkedList();
-  void enqueue(int v) => _l.addLast(v);
-  int? dequeue() => _l.removeFirst();
-  bool get isEmpty => _l.isEmpty;
+void main() {
+  
+  var q1 = QueueList();
+  q1.enqueue(10);
+  q1.enqueue(20);
+  print("QueueList dequeue: ${q1.dequeue()}"); 
+
+  
+  var q2 = QueueLinkedList();
+  q2.enqueue(30);
+  q2.enqueue(40);
+  print("QueueLinkedList dequeue: ${q2.dequeue()}"); 
 }
